@@ -16,7 +16,7 @@
         Scrollback
     </author>
     
-    <content src="http://scrollback.io/scrollback" />
+    <content src="index.html" />
 
     <!--
 If you do not want any permissions to be added to your app, add the
