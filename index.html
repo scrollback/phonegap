@@ -5,6 +5,11 @@
 	<title>Document</title>
 </head>
 <body>
-	<button> Sign in with Facebook </button>
+	<button onclick="fblogin"> Sign in with Facebook </button>
+	<script>
+		function fblogin() {
+			window.location = "https://www.facebook.com/dialog/oauth?client_id=1389363534614084&redirect_uri=https://www.facebook.com/connect/login_success.html"
+		}
+	</script>
 </body>
 </html>
