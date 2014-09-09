@@ -41,11 +41,11 @@ var app = {
         app.receivedEvent('deviceready');
 		
 		pushNotification = window.plugins && window.plugins.pushNotification;
-		if(!pushNotification) {console.log("pushNotification isn't ready."); return; }
+		if(!pushNotification) {alert("pushNotification isn't ready."); return; }
 		
 		if ( device.platform == 'android' || device.platform == 'Android' )
 		{
-			console.log('device ready; android ' + device.platform+" "+pushNotification);
+			alert('device ready; android ' + device.platform+" "+pushNotification);
 			pushNotification.register(
 				successHandler,
 				errorHandler, {
@@ -55,44 +55,44 @@ var app = {
 		}
 		else
 		{
-			console.log('device ready; not android');
+			alert('device ready; not android');
 			pushNotification.register(
 				tokenHandler,
 				errorHandler, {
 					"badge":"true",
 					"sound":"true",
-					"console.log":"true",
+					"alert":"true",
 					"ecb":"onNotificationAPN"
 				});
 		}
 		
 				// result contains any message sent from the plugin call
 		function successHandler (result) {
-			console.log('registration success result = ' + result);
+			alert('registration success result = ' + result);
 		}
 
 				// result contains any error description text returned from the plugin call
 		function errorHandler (error) {
-			console.log('registration error = '+error);
+			alert('registration error = '+error);
 		}
 
 		function tokenHandler (result) {
 			// Your iOS push server needs to know the token before it can push to this device
 			// here is where you might want to send it the token for later use.
-			console.log('registration success device token = ' + result);
+			alert('registration success device token = ' + result);
 		}
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-       console.log('Received Event: ' + id);
+       alert('Received Event: ' + id);
     }
 };
 
 // iOS
 function onNotificationAPN (event) {
-	if ( event.console.log )
+	if ( event.alert )
 	{
-		console.log(event.console.log);
+		alert(event.alert);
 	}
 
 	if ( event.sound )
@@ -109,7 +109,7 @@ function onNotificationAPN (event) {
 
 // Android
 function onNotificationGCM(e) {
-	console.log("Got notification", e.event);
+	alert("Got notification", e.event);
 
 	switch( e.event )
 	{
@@ -118,30 +118,30 @@ function onNotificationGCM(e) {
 		{
 			// Your GCM push server needs to know the regID before it can push to this device
 			// here is where you might want to send it the regID for later use.
-			console.log("regID = " + e.regid);
-			console.log("regID = " + e.regid);
+			alert("regID = " + e.regid);
+			alert("regID = " + e.regid);
 			
 		}
 	break;
 
 	case 'message':
-			console.log(e);
+			alert(e);
 		// if this flag is set, this notification happened while we were in the foreground.
 		// you might want to play a sound to get the user's attention, throw up a dialog, etc.
 		if ( e.foreground )
 		{
-			console.log(e.payload.message);
+			alert(e.payload.message);
 		}
 		
 
 	break;
 
 	case 'error':
-			console.log( e.msg );
+			alert( e.msg );
 	break;
 
 	default:
-			console.log(e);
+			alert(e);
 	break;
   }
 }
