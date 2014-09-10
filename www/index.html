@@ -4,27 +4,7 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        
-        <style type="text/css">
-            html, body {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                width: 100%;
-                overflow: hidden;
-            }
-            
-            iframe {
-                background: none;
-                border: none;
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                width: 100%;
-            }
-        </style>
-        
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />        
         <title>Scrollback</title>
     </head>
     <body>
@@ -32,7 +12,36 @@
         <script type="text/javascript" src="PushNotification.js"></script>
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="index.js"></script>
-        <script> app.initialize();</script>
-        <!-- <iframe src="https://scrollback.io/scrollbackteam"></iframe> -->
+        
+        <h1 id="heading">Test</h1>
+        
+        <script>
+            document.onreadystatechange = function() {
+                if (document.readyState === "complete") {
+                    var scripts,
+                        srcs = [],
+                        url = "https://scrollback.io/scrollback";
+                    
+                    // Get the list of the script tags
+                    scripts = document.getElementsByTagName("script");
+                    
+                    for (var i = 0, l = scripts.length; i < l; i++) {
+                        if (scripts[i].src) {
+                            srcs.push(scripts[i].src)
+                        }
+                    }
+                    
+                    if (srcs.length) {
+                        // Construct the URL
+                        url += "?pgsrcs=" + srcs.map(encodeURIComponent).join(",");
+                        
+                        // Redirect to the URL
+                        window.location.href = url;
+                    } else {
+                        document.write("Couldn't find any script tags :(");
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
