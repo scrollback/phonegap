@@ -23,14 +23,15 @@
                 if (req.readyState === 4) {
                     if (req.status === 200) {
 //                        document.documentElement.innerHTML = req.response;
-						clientString = req.response;
-						clientString = clientString.replace("<!-- insert script here -->", scriptString);
-						document.write(clientString);
+			clientString = req.response;
+			clientString = clientString.replace("<!-- phonegap scripts -->", scriptString);
+			
+			document.write(clientString);
                     }
                 }
             };
 
-            req.open("GET", "http://local.scrollback.io/s/client.phonegap.html", true);
+            req.open("GET", "http://dev.scrollback.io/s/client.phonegap.html", true);
             req.send();
         </script>
 
