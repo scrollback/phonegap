@@ -2,39 +2,48 @@
 <html>
     <head>
         <title></title>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                width: 100%;
+                background-color: #3ca;
+            }
+        </style>
+        <script src="phonegap.js"></script>
+        <script src="index.js"></script>
+        <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+                var req = new XMLHttpRequest(),
+                    url = "http://dev.scrollback.io/s/client.phonegap.html",
+                    scriptString = "<script>$.ready();app.initialize();libsb.emit('navigate', { phonegap: true });<\/script>";
+
+                req.onreadystatechange = function() {
+                    if (req.readyState === 4) {
+                        if (req.status === 200) {
+                            clientString = req.response;
+
+                            if (clientString) {
+                                clientString = clientString.replace("<!-- phonegap scripts -->", scriptString);
+
+                                document.write(clientString);
+                            } else {
+                                console.error("Response is empty for " + url + ".");
+                            }
+                        } else {
+                            console.error("AJAX request failed for " + url + ".");
+                        }
+                    }
+                };
+
+                req.open("GET", url, true);
+                req.send();
+            }
+        </script>
     </head>
 
     <body>
-		<script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="PushNotification.js"></script>
-		<script src="index.js"></script>
-        <script>
-			var i, l, scriptString = "", scripts, req, clientString = "";
-			
-			scripts = document.scripts
-			 l = scripts.length;
-
-			for (i = 0; i < l; i++) {
-				if (scripts[i].src) scriptString += scripts[i].outerHTML;
-			}
-
-			var req = new XMLHttpRequest();
-            req.onreadystatechange = function() {
-                if (req.readyState === 4) {
-                    if (req.status === 200) {
-//                        document.documentElement.innerHTML = req.response;
-			clientString = req.response;
-			clientString = clientString.replace("<!-- phonegap scripts -->", scriptString);
-			
-			document.write(clientString);
-                    }
-                }
-            };
-
-            req.open("GET", "http://dev.scrollback.io/s/client.phonegap.html", true);
-            req.send();
-        </script>
-
     </body>
-
 </html>
+
