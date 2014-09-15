@@ -17,7 +17,7 @@
  * under the License.
  */
 
-/* global window, document */
+/* global window, document, device, Media */
 
 var pushNotification;
 

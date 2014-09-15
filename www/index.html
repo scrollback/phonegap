@@ -13,12 +13,11 @@
         <script src="index.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-
+			
             function onDeviceReady() {
                 var req = new XMLHttpRequest(),
                     url = "http://dev.scrollback.io/s/client.phonegap.html",
-                    scriptString = "<script>$.ready();app.initialize();libsb.emit('navigate', { phonegap: true });<\/script>";
-
+                    scriptString = "<script>$.ready();app.initialize();<\/script>";
                 req.onreadystatechange = function() {
                     if (req.readyState === 4) {
                         if (req.status === 200) {
