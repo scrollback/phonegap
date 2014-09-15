@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <title></title>
     </head>
@@ -8,13 +7,23 @@
     <body>
 
         <script>
-            var req = new XMLHttpRequest(),
-                text = document.getElementById("test");
+			var i, l, scriptString = "", scripts, req, clientString = "";
+			
+			scripts = document.scripts
+			 l = scripts.length;
 
+			for (i = 0; i < l; i++) {
+				if (scripts[i].src) scriptString += scripts[i].outerHTML;
+			}
+
+			var req = new XMLHttpRequest();
             req.onreadystatechange = function() {
                 if (req.readyState === 4) {
                     if (req.status === 200) {
-                        document.documentElement.innerHTML = req.response;
+//                        document.documentElement.innerHTML = req.response;
+						clientString = req.response;
+						clientString = clientString.replace("<!-- insert script here -->", scriptString);
+						document.write(clientString);
                     }
                 }
             };
