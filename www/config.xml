@@ -94,6 +94,6 @@ Define access to external domains.
 
 Otherwise, you can specify specific domains:
 -->
-        <access origin="https://scrollback.io" />
+        <access origin="*" />
 
 </widget>
