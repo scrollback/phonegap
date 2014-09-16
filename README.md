@@ -1,4 +1,4 @@
 phonegap
 ========
 
-A phonegap application for Scrollback.
+The Phonegap application for Scrollback.
