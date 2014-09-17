@@ -1,4 +1,4 @@
 phonegap
 ========
 
-The Phonegap application for Scrollback.
+A stub phonegap app that merely redirects to the web app
