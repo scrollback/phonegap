@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="https://dev.scrollback.io/manifest.appcache" lang="en">
     <head>
         <title></title>
         <style type="text/css">
@@ -16,8 +16,9 @@
 			
             function onDeviceReady() {
                 var req = new XMLHttpRequest(),
-                    url = "http://dev.scrollback.io/s/client.phonegap.html",
+                    url = "https://dev.scrollback.io/client.html",
                     scriptString = "<script>$.ready();app.initialize();<\/script>";
+
                 req.onreadystatechange = function() {
                     if (req.readyState === 4) {
                         if (req.status === 200) {
