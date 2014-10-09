@@ -2,45 +2,57 @@
 <html manifest="https://scrollback.io/manifest.appcache" lang="en">
     <head>
         <title>Scrollback</title>
+
         <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
             html, body {
                 height: 100%;
                 width: 100%;
                 background-color: #3ca;
             }
         </style>
+
         <script src="phonegap.js"></script>
         <script src="index.js"></script>
-        <script>
-            document.addEventListener("deviceready", onDeviceReady, false);
 
-            function onDeviceReady() {
-                var req = new XMLHttpRequest(),
-                    url = "https://scrollback.io/client.html",
-                    scriptString = "<script>$.ready();app.initialize();<\/script>";
+        <script>
+            function fetchData(url, success, failure) {
+                var req = new XMLHttpRequest();
 
                 req.onreadystatechange = function() {
-                    var matches;
+                    var res;
 
                     if (req.readyState === 4) {
-                        if (req.status === 200) {
-                            clientString = req.response;
+                        // Older versions of webkit return req.status as 0
+                        if (req.status < 400 && req.responseText) {
+                            res = req.responseText;
 
-                            if (clientString) {
-                                clientString = clientString.replace("<!-- phonegap scripts -->", scriptString);
-
-                                matches = /((?:\r|\n|.)+)(<body.*class=['"])(.*)(["'].*>)((?:\r|\n|.)+)/.exec(clientString);
-
-                                matches.splice(0, 1);
-
-                                matches[2] += " media-phonegap state-offline";
-
-                                document.write(matches.join(""));
+                            if (res) {
+                                localStorage.setItem(url, res);
                             } else {
-                                console.error("Response is empty for " + url + ".");
+                                console.error("Got empty response for " + url + ".");
                             }
                         } else {
                             console.error("AJAX request failed for " + url + ".");
+                        }
+
+                        if (!res) {
+                            res = localStorage.getItem(url);
+
+                            if (res) {
+                                console.warn("Using cached copy for " + url + ".");
+                            }
+                        }
+
+                        if (res && success && typeof success === "function") {
+                            success(res);
+                        } else if (failure && typeof failure === "function") {
+                            failure();
                         }
                     }
                 };
@@ -48,10 +60,31 @@
                 req.open("GET", url, true);
                 req.send();
             }
+
+            function onDeviceReady() {
+                var url = "https://scrollback.io/client.html";
+
+                fetchData(url, function(res) {
+                    var script = "<script>window.jQuery && jQuery.ready(); window.app && app.initialize();<\/script>";
+
+                    res = res.replace("<!-- phonegap scripts -->", script);
+
+                    matches = /((?:\r|\n|.)+)(<body.*class=['"])(.*)(["'].*>)((?:\r|\n|.)+)/.exec(res);
+
+                    matches.splice(0, 1);
+
+                    matches[2] += " media-phonegap state-offline";
+
+                    document.write(matches.join(""));
+                }, function() {
+                    console.error("An error occured.");
+                });
+            }
+
+            document.addEventListener("deviceready", onDeviceReady, false);
         </script>
     </head>
 
-    <body>
-    </body>
+    <body></body>
 </html>
 
