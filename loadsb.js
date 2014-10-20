@@ -41,7 +41,7 @@ function fetchData(url, success, failure) {
 }
 
 function onDeviceReady() {
-	var url = "https://scrollback.io/client.html";
+	var url = "https://stage.scrollback.io/client.html";
 
 	fetchData(url, function(res) {
 		var script = "<script>window.jQuery && jQuery.ready(); window.app && app.initialize();<\/script>";
