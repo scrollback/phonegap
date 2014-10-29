@@ -24,7 +24,8 @@ following tag to your config.xml; you will still have the INTERNET
 permission on your app, which PhoneGap requires.
 -->
     <preference name="permissions" value="none"/>
-
+    <feature name="http://api.phonegap.com/1.0/file"/>
+   
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version" value="3.5.0" /> <!-- all: current version of PhoneGap -->
     <preference name="orientation" value="default" /> <!-- all: default means both landscape and portrait are enabled -->
@@ -49,6 +50,7 @@ permission on your app, which PhoneGap requires.
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="com.phonegap.plugins.PushPlugin" />
+    <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
