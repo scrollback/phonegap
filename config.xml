@@ -50,12 +50,12 @@ permission on your app, which PhoneGap requires.
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="com.phonegap.plugins.PushPlugin" />
-    <gap:plugin name="com.machenmusik.plugins.launchmyapp" version="3.1.2">
+    <gap:plugin name="com.oktala.plugins.launchmyapp" version="3.1.2">
         <param name="URL_SCHEME" value="https" />
         <param name="HTTP_HOST" value="scrollback.io" />
-        <param name="HTTP_PATHPREFIX" value="scrollback.io" />
+        <param name="HTTP_PATHPREFIX" value="" />
         <param name="HTTPS_HOST" value="scrollback.io" />
-        <param name="HTTPS_PATHPREFIX" value="scrollback.io" />
+        <param name="HTTPS_PATHPREFIX" value="" />
     </gap:plugin>
 
     <!-- Third party plugins -->
