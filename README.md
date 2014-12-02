@@ -16,3 +16,8 @@ crosswalk only support upto 3.5.
 ```bash
 npm install -g cordova@3.5
 ```
+
+#Dependencies
+1. JDK-1.5 or up
+2. Android SDK
+3. [Ant](http://dita-ot.sourceforge.net/doc/ot-userguide13/xhtml/installing/linux_installingant.html)

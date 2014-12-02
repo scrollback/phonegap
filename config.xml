@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.scrollback.app" version="0.0.1" versionCode="125" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<widget id="io.scrollback.app" version="0.0.1" android-versionCode="130" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <name>Scrollback</name>
     <description>
         Scrollback keeps you in touch with your communities wherever you are.
@@ -37,13 +37,13 @@
         <param name="HTTPS_HOST" value="scrollback.io" />
         <param name="HTTPS_PATHPREFIX" value="" />
     </gap:plugin>
-    <icon src="icon.png" />
-    <icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/icon-48-mdpi.png" />
-    <icon gap:platform="android" gap:qualifier="hdpi" src="res/icon/android/icon-72-hdpi.png" />
-    <icon gap:platform="android" gap:qualifier="xhdpi" src="res/icon/android/icon-96-xhdpi.png" />
-    <icon gap:platform="android" gap:qualifier="xxhdpi" src="res/icon/android/icon-144-xxhdpi.png" />
-    <icon gap:platform="android" gap:qualifier="xxxhdpi" src="res/icon/android/icon-192-xxxhdpi.png" />
-    <icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />
+    <icon src="www/res/icon/icon.png" />
+    <icon platform="android" density="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
+    <icon platform="android" density="hdpi" src="www/res/icon/android/icon-72-hdpi.png" />
+    <icon platform="android" density="xhdpi" src="www/res/icon/android/icon-96-xhdpi.png" />
+    <icon platform="android" density="xxhdpi" src="www/res/icon/android/icon-144-xxhdpi.png" />
+    <icon platform="android" density="xxxhdpi" src="www/res/icon/android/icon-192-xxxhdpi.png" />
+    <!--<icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />
     <icon gap:platform="ios" height="72" src="res/icon/ios/icon-72.png" width="72" />
@@ -51,7 +51,7 @@
     <icon gap:platform="ios" height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
     <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />
     <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
-    <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />
+    <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />-->
     <access origin="*" />
     <feature name="Custom URL scheme">
         <param name="id" value="com.oktala.plugins.launchmyapp" />
