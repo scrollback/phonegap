@@ -14,4 +14,7 @@
 hs_err_pid*
 
 
-*/local.properties
+platforms/android/local.properties
+platforms/android/project.properties
+platforms/android/ant-build
+platforms/android/ant-gen
