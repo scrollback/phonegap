@@ -7,7 +7,7 @@
     <author email="support@scrollback.io" href="http://scrollback.io">
         Scrollback
     </author>
-    <content src="index.html" />
+    <content src="index.html" />  <!-- change to https://stage.scrollback.io/me?platform=android -->
     <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.5.0" />
     <preference name="orientation" value="default" />
@@ -22,7 +22,6 @@
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="16" />
     <preference name="android-installLocation" value="preferExternal" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
