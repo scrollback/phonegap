@@ -19,3 +19,5 @@ platforms/android/local.properties
 platforms/android/project.properties
 platforms/android/ant-build
 platforms/android/ant-gen
+
+cordova-plugins/defaults
