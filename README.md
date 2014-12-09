@@ -20,7 +20,7 @@ npm install -g cordova@3.5
 ###Plugins
 
 ```bash
-./install
+./install.sh
 ```
 #Dependencies
 1. JDK-1.5 or up
@@ -31,7 +31,12 @@ npm install -g cordova@3.5
 
 #Release
 
-```./release <alpha or beta> <version>```
+```bash
+./release.sh <alpha or beta> <version>
+```
 
 #Debug
-```./debug```
+
+```bash 
+./debug.sh
+```
