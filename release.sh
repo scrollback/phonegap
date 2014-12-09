@@ -25,11 +25,11 @@ cp -f -v www/index.html tmp/index.html
 node release.js ${args} ${ver}
 cordova build android --release
 unzip platforms/android/ant-build/Scrollback-release-unsigned.apk assets/www/* -d tmp/
-mkdir -v cordova-plugins/${ver}
-mv -f -v tmp/assets/www/cordova.js cordova-plugins/${ver}/
-mv -f -v tmp/assets/www/cordova_plugins.js cordova-plugins/${ver}/
 rm -f -r -v cordova-plugins/${ver}
-mv -f -v tmp/assets/www/plugins/ cordova-plugins/${ver}/
+mkdir -v cordova-plugins/${ver}
+mv -f -v tmp/assets/www/cordova.js cordova-plugins/${ver}/cordova.js
+mv -f -v tmp/assets/www/cordova_plugins.js cordova-plugins/${ver}/cordova-plugins.js
+mv -f -v tmp/assets/www/plugins cordova-plugins/${ver}/
 cp -f -v tmp/index.html www/index.html
 rm -r -v tmp
 

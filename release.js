@@ -10,6 +10,9 @@ if (argv[2] === 'alpha') {
     index = index.replace('"https://stage.scrollback.io/me?platform=android"', '"https://stage.scrollback.io/me?platform=android&app-version=' + argv[3] + '"');
 } else if (argv[2] === 'beta') {
     index = index.replace('"https://stage.scrollback.io/me?platform=android"', '"https://scrollback.io/me?platform=android&app-version=' + argv[3] + '"');
+} else {
+    console.log("Invalid options");
+    process.exit(1);
 }
-console.log("Index:", index);
+console.log("Index: ", index);
 fs.writeFileSync("www/index.html", index, 'utf8');
