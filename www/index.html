@@ -6,15 +6,29 @@
 
     <style type="text/css">
         * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        html,
-        body {
-        height: 100%;
-        width: 100%;
-        background-color: #3ca;
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: #3ca;
+        }
+
+        .splash {
+            display: table;
+            table-layout: fixed;
+            height: 100%;
+            width: 100%;
+        }
+
+        .splash-logo {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            fill: #fff;
         }
     </style>
 
@@ -34,6 +48,7 @@
             }
             location.href = updateQueryStringParameter(u, "platform", "android");
         }
+
         function onBodyLoad() {
         	document.addEventListener("deviceready", function() {
                 location.href = "https://stage.scrollback.io/me?platform=android";
@@ -41,7 +56,17 @@
         }
     </script>
 
-<body onload="onBodyLoad()"></body>
+<body onload="onBodyLoad()">
+    <div class="splash">
+        <div class="splash-logo">
+            <svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                <path d="M32 4L12 24h11.33L32 15.267 40.67 24H52z" />
+                <path d="M12 28h40v8H12z" />
+                <path d="M32 60L12 40h11.33L32 48.733 40.67 40H52z" />
+            </svg>
+        </div>
+    </div>
+</body>
 </head>
 
 <body></body>
