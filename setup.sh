@@ -35,7 +35,7 @@ if [[ -z ${ANDROID_HOME} ]]; then
 				read "android_home"
 			done
 
-			echo "export ANDROID_HOME=${android_home}" >> ~/.bash_profile
+			echo "export ANDROID_HOME=\"${android_home}\"" >> ~/.bash_profile
 			echo "export PATH=\"\${PATH}:\${ANDROID_HOME}/tools:\${ANDROID_HOME}/platform-tools\"" >> ~/.bash_profile
 
 			break
@@ -61,6 +61,11 @@ if [[ ! `command -v ant` ]]; then
 			elif [[ `command -v dnf` ]]; then
 				sudo dnf install ant
 			fi
+
+			echo "Adding ANT_HOME and ANT_OPTS to your .bash_profile"
+
+			echo "export ANT_HOME=\"$(ant -diagnostics 2>&1 | grep ant.home | head -n1 | cut -d: -f2 | sed -e 's/^ *//' -e 's/ *$//')\"" >> ~/.bash_profile
+			echo "export ANT_OPTS=\"-Xmx256M\"" >> ~/.bash_profile
 
 			break
 		else
@@ -89,3 +94,8 @@ if [[ $(uname -m) == "x86_64" ]] && [[ `command -v apt-get` || `command -v dnf` 
 		fi
 	done
 fi
+
+
+# Finishing touches
+
+echo "You might need to restart the Terminal or run 'source ~/.bash_profile'"
