@@ -33,30 +33,33 @@
     </style>
 
     <script src="cordova.js"></script>
+
     <script>
-        /**url intent filter callback*/
+        // URL intent filter callback
         function handleOpenURL(u) {
             function updateQueryStringParameter(uri, key, value) {
-                var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-                var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+                var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i"),
+                    separator = uri.indexOf('?') !== -1 ? "&" : "?";
+
                 if (uri.match(re)) {
                     return uri.replace(re, '$1' + key + "=" + value + '$2');
-                }
-                else {
+                } else {
                     return uri + separator + key + "=" + value;
                 }
             }
-            location.href = updateQueryStringParameter(u, "platform", "android");
+
+            location.href = updateQueryStringParameter(u, "platform", "cordova-android");
         }
 
-        function onBodyLoad() {
+        document.body.onload = function() {
         	document.addEventListener("deviceready", function() {
-                location.href = "https://stage.scrollback.io/me?platform=android";
+                location.href = "https://stage.scrollback.io/me?platform=cordova-android";
         	}, false);
-        }
+        };
     </script>
+</head>
 
-<body onload="onBodyLoad()">
+<body>
     <div class="splash">
         <div class="splash-logo">
             <svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
@@ -67,9 +70,6 @@
         </div>
     </div>
 </body>
-</head>
-
-<body></body>
 
 </html>
 
