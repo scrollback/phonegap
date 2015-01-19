@@ -1,6 +1,20 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "file": "plugins/nl.x-services.plugins.googleplus/www/GooglePlus.js",
+        "id": "nl.x-services.plugins.googleplus.GooglePlus",
+        "clobbers": [
+            "window.plugins.googleplus"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
+    },
+    {
         "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
         "id": "com.phonegap.plugins.PushPlugin.PushNotification",
         "clobbers": [
@@ -12,13 +26,6 @@ module.exports = [
         "id": "hu.dpal.phonegap.plugins.UniqueDeviceID.UniqueDeviceID",
         "merges": [
             "window.plugins.uniqueDeviceID"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.device/www/device.js",
-        "id": "org.apache.cordova.device.device",
-        "clobbers": [
-            "device"
         ]
     },
     {
@@ -168,10 +175,10 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
-        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "file": "plugins/com.oktala.plugins.launchmyapp/www/android/LaunchMyApp.js",
+        "id": "com.oktala.plugins.launchmyapp.LaunchMyApp",
         "clobbers": [
-            "window.open"
+            "window.plugins.launchmyapp"
         ]
     },
     {
@@ -190,23 +197,34 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.oktala.plugins.launchmyapp/www/android/LaunchMyApp.js",
-        "id": "com.oktala.plugins.launchmyapp.LaunchMyApp",
+        "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
         "clobbers": [
-            "window.plugins.launchmyapp"
+            "facebookConnectPlugin"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
+        "clobbers": [
+            "device"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "com.google.playservices": "21.0.0",
+    "nl.x-services.plugins.googleplus": "1.0.9",
+    "org.apache.cordova.inappbrowser": "0.5.4",
     "com.phonegap.plugins.PushPlugin": "2.4.0",
     "hu.dpal.phonegap.plugins.UniqueDeviceID": "1.2.0",
-    "org.apache.cordova.device": "0.2.13",
     "org.apache.cordova.file": "1.3.2",
-    "org.apache.cordova.inappbrowser": "0.5.4",
+    "com.oktala.plugins.launchmyapp": "3.1.2",
     "org.apache.cordova.network-information": "0.2.14",
-    "com.oktala.plugins.launchmyapp": "3.1.2"
+    "com.phonegap.plugins.facebookconnect": "0.11.0",
+    "org.apache.cordova.device": "0.2.13",
+    "android.support.v4": "21.0.1"
 }
 // BOTTOM OF METADATA
 });
