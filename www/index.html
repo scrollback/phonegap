@@ -50,12 +50,6 @@
 
             location.href = updateQueryStringParameter(u, "platform", "cordova-android");
         }
-
-        document.body.onload = function() {
-        	document.addEventListener("deviceready", function() {
-                location.href = "https://stage.scrollback.io/me?platform=cordova-android";
-        	}, false);
-        };
     </script>
 </head>
 
@@ -69,6 +63,14 @@
             </svg>
         </div>
     </div>
+
+    <script>
+        document.body.onload = function() {
+            document.addEventListener("deviceready", function() {
+                location.href = "https://stage.scrollback.io/me?platform=cordova-android";
+            }, false);
+        };
+    </script>
 </body>
 
 </html>

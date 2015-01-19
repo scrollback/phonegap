@@ -7,9 +7,9 @@ if (argv.length < 4) {
     process.exit(1);
 }
 if (argv[2] === 'alpha') {
-    index = index.replace('"https://stage.scrollback.io/me?platform=android"', '"https://stage.scrollback.io/me?platform=android&app-version=' + argv[3] + '"');
+    index = index.replace('"https://stage.scrollback.io/me?platform=cordova-android"', '"https://stage.scrollback.io/me?platform=cordova-android&app-version=' + argv[3] + '"');
 } else if (argv[2] === 'beta') {
-    index = index.replace('"https://stage.scrollback.io/me?platform=android"', '"https://scrollback.io/me?platform=android&app-version=' + argv[3] + '"');
+    index = index.replace('"https://stage.scrollback.io/me?platform=cordova-android"', '"https://scrollback.io/me?platform=cordova-android&app-version=' + argv[3] + '"');
 } else {
     console.log("Invalid options");
     process.exit(1);
