@@ -37,5 +37,6 @@ git add cordova-plugins/${ver}/
 echo "New version files added to git, please commit"
 
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore scrollback.keystore platforms/android/ant-build/Scrollback-release-unsigned.apk scrollback.io
-${ANDROID_HOME}/build-tools/21.0.0/zipalign -f -v 4 platforms/android/ant-build/Scrollback-release-unsigned.apk platforms/android/ant-build/app-release.apk
+
+$ANDROID_HOME/build-tools/21.0.0/zipalign -f -v 4 platforms/android/ant-build/Scrollback-release-unsigned.apk platforms/android/ant-build/app-release.apk
 

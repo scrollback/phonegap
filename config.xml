@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.scrollback.app" version="0.0.1" android-versionCode="131" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<widget id="io.scrollback.app" version="0.0.1" android-versionCode="133" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <name>Scrollback</name>
     <description>
         Scrollback keeps you in touch with your communities wherever you are.
