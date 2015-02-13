@@ -14,4 +14,3 @@ cordova plugin add org.apache.cordova.file
 cordova plugin add https://github.com/joaomak/LaunchMyApp-PhoneGap-Plugin --variable URL_SCHEME=https --variable HTTP_HOST=scrollback.io --variable HTTP_PATHPREFIX="" --variable HTTPS_HOST=scrollback.io --variable HTTPS_PATHPREFIX=""
 cordova plugin add org.apache.cordova.network-information
 cordova -d plugin add https://github.com/Wizcorp/phonegap-facebook-plugin.git --variable APP_ID=$1 --variable APP_NAME=$2
-cordova plugin add https://github.com/scrollback/cordova-plugin-googleplus.git
