@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installs the plugins and adds the platform to the Cordova project.
+
 if [ $# -lt 2 ]
 then 
     echo 'Please pass Facebook APP_ID and APP_NAME as params 1 and 2 respectively.'

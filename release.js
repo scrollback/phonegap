@@ -1,3 +1,7 @@
+/*
+	This script versions the apk by adding a version number to the redirect URL in the apk.
+*/
+
 var argv = process.argv,
     fs = require('fs');
 console.log("Alpha", argv);

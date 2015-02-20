@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script generates signed apks, which can be uploaded to the Play Store, for more information
+# consult the Build and Versioning article in the Wiki.
+
 ver="$1"
 args="$2"
 

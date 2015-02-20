@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# This script uploads the plugin files to stage and deploys the apk on the connected device
+# Use this script while debugging the apk.
+
 cordova build android
 unzip platforms/android/ant-build/Scrollback-debug.apk assets/www/* -d tmp/
 rm -rf cordova-plugins/defaults
